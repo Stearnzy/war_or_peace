@@ -3,7 +3,6 @@ class Deck
 
   def initialize(cards)
     @cards = cards
-    @high_cards = []
   end
 
   def rank_of_card_at(index)
@@ -11,6 +10,7 @@ class Deck
   end
 
   def high_ranking_cards
+    @high_cards = []
     @cards.each do |card|
       @high_cards << card if card.rank >= 11
     end
@@ -18,10 +18,11 @@ class Deck
   end
 
   def percent_high_ranking
-    @cards.each do |card|
-      @high_cards << card if card.rank >= 11
-    end
-    (@high_cards.length / 3.00 * 100).round(2)
+    ((self.high_ranking_cards.length.to_f / self.cards.length.to_f) * 100).round(2)
+  end
+
+  def remove_card
+    @cards.shift
   end
 
   def add_card(card)
