@@ -56,6 +56,8 @@ queen_clubs = Card.new(:club, 'Queen', 12)
 king_clubs = Card.new(:club, 'King', 13)
 ace_clubs = Card.new(:club, 'Ace', 14)
 
+deck1 = []
+deck2 = []
 complete_deck = [two_clubs, two_hearts, two_spades, two_diamonds,
 three_clubs, three_hearts, three_spades, three_diamonds,
 four_clubs, four_hearts, four_spades, four_diamonds,
@@ -72,4 +74,8 @@ ace_clubs, ace_hearts, ace_spades, ace_diamonds]
 
 complete_deck.shuffle!
 
-complete_deck
+26.times {deck1 << complete_deck.shift}
+26.times {deck2 << complete_deck.shift}
+
+
+
