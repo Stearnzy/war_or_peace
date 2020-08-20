@@ -56,3 +56,16 @@ queen_clubs = Card.new(:club, 'Queen', 12)
 king_clubs = Card.new(:club, 'King', 13)
 ace_clubs = Card.new(:club, 'Ace', 14)
 
+complete_deck = [two_clubs, two_hearts, two_spades, two_diamonds,
+three_clubs, three_hearts, three_spades, three_diamonds,
+four_clubs, four_hearts, four_spades, four_diamonds,
+five_clubs, five_hearts, five_spades, five_diamonds,
+six_clubs, six_hearts, six_spades, six_diamonds,
+seven_clubs, seven_hearts, seven_spades, seven_diamonds,
+eight_clubs, eight_hearts, eight_spades, eight_diamonds,
+nine_clubs, nine_hearts, nine_spades, nine_diamonds,
+ten_clubs, ten_hearts, ten_spades, ten_diamonds,
+jack_clubs, jack_hearts, jack_spades, jack_diamonds,
+queen_clubs, queen_hearts, queen_spades, queen_diamonds,
+king_clubs, king_hearts, king_spades, king_diamonds,
+ace_clubs, ace_hearts, ace_spades, ace_diamonds]
