@@ -69,3 +69,7 @@ jack_clubs, jack_hearts, jack_spades, jack_diamonds,
 queen_clubs, queen_hearts, queen_spades, queen_diamonds,
 king_clubs, king_hearts, king_spades, king_diamonds,
 ace_clubs, ace_hearts, ace_spades, ace_diamonds]
+
+complete_deck.shuffle!
+
+complete_deck
