@@ -10,10 +10,10 @@ class Turn
   def type
     if player1.deck.rank_of_card_at(0) != player2.deck.rank_of_card_at(0)
       return :basic
+    elsif player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2)
+      return :mutually_assured_destruction
     elsif player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0)
       return :war
-    elsif player1.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.card.rank_of_card_at(0) && player2.deck.card.rank_of_card_at(2)
-      return :mutually_assured_destruction
     end
   end
 
@@ -27,7 +27,7 @@ class Turn
     elsif self.type == :war
       if player1.deck.cards[2].rank > player2.deck.cards[2].rank
         return player1
-      elsif player2.deck.cards[2].rank < player2.deck.cards[2].rank
+      elsif player1.deck.cards[2].rank < player2.deck.cards[2].rank
         return player2
       end
     elsif self.type == :mutually_assured_destruction
@@ -40,8 +40,8 @@ class Turn
       @spoils_of_war << player1.deck.remove_card
       @spoils_of_war << player2.deck.remove_card
     elsif self.type == :war
-      @spoils_of_war << 3.times {player1.deck.remove_card}
-      @spoils_of_war << 3.times {player2.deck.remove_card}
+      3.times {@spoils_of_war << player1.deck.remove_card}
+      3.times {@spoils_of_war << player2.deck.remove_card}
     elsif self.type == :mutually_assured_destruction
       3.times {player1.deck.remove_card}
       3.times {player2.deck.remove_card}
