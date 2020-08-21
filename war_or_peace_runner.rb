@@ -2,6 +2,7 @@ require './lib/card'
 require './lib/deck'
 require './lib/player'
 require './lib/turn'
+require './lib/initialize_game'
 
 two_hearts = Card.new(:heart, '2', 2)
 three_hearts = Card.new(:heart, '3', 3)
@@ -76,6 +77,14 @@ complete_deck.shuffle!
 
 26.times {deck1 << complete_deck.shift}
 26.times {deck2 << complete_deck.shift}
+
+player1 = Player.new("Megan", deck1)
+player2 = Player.new("Aurora", deck2)
+
+turn = Turn.new(player1, player2)
+
+initialize = InitializeGame.new
+initialize.start
 
 
 
