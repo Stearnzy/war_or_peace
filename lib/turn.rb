@@ -1,10 +1,11 @@
 class Turn
-  attr_reader :player1, :player2, :spoils_of_war
+  attr_reader :player1, :player2, :spoils_of_war, :turn_count, :winner
 
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
     @spoils_of_war = []
+    @turn_count = 1
   end
 
   def type
@@ -21,7 +22,7 @@ class Turn
     if self.type == :basic
       if player1.deck.cards[0].rank > player2.deck.cards[0].rank
         return player1
-      elsif player2.deck.cards[0].rank < player2.deck.cards[0].rank
+      elsif player1.deck.cards[0].rank < player2.deck.cards[0].rank
         return player2
       end
     elsif self.type == :war
@@ -53,10 +54,12 @@ class Turn
       @spoils_of_war.each do |card|
         player1.deck.cards << card
       end
+      @turn_count += 1
     elsif winner == player2
       @spoils_of_war.each do |card|
         player2.deck.cards << card
       end
+      @turn_count += 1
     end
   end
 
