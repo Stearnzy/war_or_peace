@@ -53,11 +53,13 @@ class Turn
     if winner == player1
       @spoils_of_war.each do |card|
         player1.deck.cards << card
+        @spoils_of_war = []
       end
       @turn_count += 1
     elsif winner == player2
       @spoils_of_war.each do |card|
         player2.deck.cards << card
+        @spoils_of_war = []
       end
       @turn_count += 1
     end
