@@ -11,20 +11,4 @@ class InitializeGameTest < Minitest::Test
     start = InitializeGame.new
     assert_instance_of InitializeGame, start
   end
-
-  def test_ending_game_message
-    card1 = Card.new(:heart, 'Jack', 11)
-    card2 = Card.new(:heart, '10', 10)
-
-    deck1 = Deck.new([card1])
-    deck2 = Deck.new([card2])
-
-    player1 = Player.new("Megan", deck1)
-    player2 = Player.new("Aurora", deck2)
-
-<<<<<<< HEAD
-=======
-    require "pry"; binding.pry
->>>>>>> 953751bcb4c998a3f73a81575d7b036490e142a8
-  end
 end
