@@ -85,7 +85,6 @@ class InitializeGame
     deck1 = Deck.new(card_set_1)
     deck2 = Deck.new(card_set_2)
 
-    # def initialize
     player1 = Player.new("Megan", deck1)
     player2 = Player.new("Aurora", deck2)
 
@@ -116,17 +115,11 @@ class InitializeGame
       if type == :basic
         p "Turn #{turn_count}: #{winner.name} won 2 cards."
         turn.award_spoils(winner)
-        p player1.deck.cards.count
-        p player2.deck.cards.count
       elsif type == :war
         p "Turn #{turn_count}: WAR - #{winner.name} won #{turn.spoils_of_war.count} cards."
         turn.award_spoils(winner)
-        p player1.deck.cards.count
-        p player2.deck.cards.count
       elsif type == :mutually_assured_destruction
         p "Turn #{turn_count}: *mutually assured destruction* 6 cards removed from play."
-          p player1.deck.cards.count
-          p player2.deck.cards.count
       end
 
     end
