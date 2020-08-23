@@ -1,14 +1,14 @@
 class Turn
-  attr_reader :player1, :player2, :spoils_of_war, :turn_count, :winner
+  attr_reader :player1, :player2, :spoils_of_war, :winner
 
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
     @spoils_of_war = []
-    @turn_count = 1
   end
 
   def type
+    # something to check deck count
     if player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0) && player1.deck.rank_of_card_at(2) == player2.deck.rank_of_card_at(2)
       return :mutually_assured_destruction
     elsif player1.deck.rank_of_card_at(0) == player2.deck.rank_of_card_at(0)
@@ -20,23 +20,24 @@ class Turn
 
   def winner
     if self.type == :basic
-      if player1.deck.cards[0].rank > player2.deck.cards[0].rank
+      if player1.deck.rank_of_card_at(0) > player2.deck.rank_of_card_at(0)
         return player1
-      elsif player1.deck.cards[0].rank < player2.deck.cards[0].rank
+      else
         return player2
       end
     elsif self.type == :war
-      if player1.deck.cards[2].rank > player2.deck.cards[2].rank
+      if player1.deck.rank_of_card_at(2) > player2.deck.rank_of_card_at(2)
         return player1
-      elsif player1.deck.cards[2].rank < player2.deck.cards[2].rank
+      else
         return player2
       end
     elsif self.type == :mutually_assured_destruction
-      return "No Winner"
+      "No Winner"
     end
   end
 
   def pile_cards
+    # might need to have way to check cards in hand
     if self.type == :basic
       @spoils_of_war << player1.deck.remove_card
       @spoils_of_war << player2.deck.remove_card
@@ -55,13 +56,11 @@ class Turn
         player1.deck.cards << card
         @spoils_of_war = []
       end
-      @turn_count += 1
     elsif winner == player2
       @spoils_of_war.each do |card|
         player2.deck.cards << card
         @spoils_of_war = []
       end
-      @turn_count += 1
     end
   end
 
