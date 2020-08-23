@@ -22,5 +22,9 @@ class InitializeGameTest < Minitest::Test
     player1 = Player.new("Megan", deck1)
     player2 = Player.new("Aurora", deck2)
 
+<<<<<<< HEAD
+=======
+    require "pry"; binding.pry
+>>>>>>> 953751bcb4c998a3f73a81575d7b036490e142a8
   end
 end
